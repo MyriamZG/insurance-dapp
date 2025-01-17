@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],[,,,function(e,n,t){e.exports=t(4)},function(e,n,t){"use strict";t.r(n);var o=t(0),c=t.n(o),r=t(2);const a=()=>c.a.createElement("h1",null,"Insurance DApp");t.n(r).a.createRoot(document.getElementById("root")).render(c.a.createElement(a,null))}],[[3,1,2]]]);
+//# sourceMappingURL=main.057cfc67.chunk.js.map

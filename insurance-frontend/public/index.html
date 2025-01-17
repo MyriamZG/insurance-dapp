@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance DApp</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f8fb;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header */
+    .header {
+      background-color: #007bff;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #007bff;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #007bff;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 15px;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Data Display Section */
+    .data-box {
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      margin-top: 15px;
+      font-size: 0.95rem;
+      color: #333;
+      word-break: break-word;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header">
+    <h1>Insurance DApp</h1>
+    <p>Secure your future with blockchain technology</p>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Welcome Section -->
+    <div class="section">
+      <h2>Welcome to the Insurance DApp</h2>
+      <p>
+        Our decentralized application allows you to manage your insurance contracts securely 
+        and transparently using blockchain technology.
+      </p>
+      <button class="button" onclick="connectWallet()">Connect Wallet</button>
+    </div>
+
+    <!-- Data Section -->
+    <div class="section">
+      <h2>Your Insurance Data</h2>
+      <p>Click the button below to load your insurance contract data.</p>
+      <button class="button" onclick="loadData()">Load Insurance Data</button>
+      <div id="data-display" class="data-box">No data loaded yet.</div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <div class="footer">
+    <p>
+      Built with ❤️ by <a href="https://yourwebsite.com" target="_blank">Your Team</a>
+    </p>
+  </div>
+  <div id="root"></div>
+
+
+  <script>
+    // Example JavaScript Functions (connectWallet & loadData)
+
+    async function connectWallet() {
+      try {
+        if (window.ethereum) {
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          alert('Wallet connected!');
+        } else {
+          alert('Please install MetaMask!');
+        }
+      } catch (error) {
+        console.error('Connection error:', error);
+        alert('Failed to connect wallet.');
+      }
+    }
+
+    async function loadData() {
+      const dataDisplay = document.getElementById('data-display');
+      try {
+        // Example: Simulate loading data from the blockchain
+        const data = await fetchBlockchainData();
+        dataDisplay.textContent = JSON.stringify(data);
+      } catch (error) {
+        console.error('Error loading data:', error);
+        dataDisplay.textContent = 'Error loading data.';
+      }
+    }
+
+    async function fetchBlockchainData() {
+      return new Promise((resolve) =>
+        setTimeout(() => resolve({ policy: 'Health Insurance', coverage: 'Full', validTill: '2025-12-31' }), 1000)
+      );
+    }
+  </script>
+</body>
+</html>
